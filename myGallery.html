@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial=scale=1.0">
+  <meta charset="utf-8">
+  <title>SOHO Gallery</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    .navbar {background:#60092b;}
+    .nav-link,.navbar-brand {color: #fff;cursor: pointer;}
+    .nav-link {margin-right: 1em !important;}
+    .nav-link:hover {color: #000;}
+    .navbar-collapse {justify-content: flex-end;}
+body {font-family: Arial, Helvetica, sans-serif;}
+*{
+  box-sizing: border-box;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md">
+  <a class="navbar-brand" href="#"><img src="logo_SSERD.png" style="margin-top: 5px;height: 70px;"></a>
+  <a class="navbar-brand" href="#"><img src="teamsoho.png" style="margin-top: 5px;height: 70px;"></a>
+    <div class="collapse navbar-collapse" id="main-navigation">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myTeam.html">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myProject.html">Project</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Gallery</a>
+        </li>    </ul>
+    </div>
+  </nav>
+  <!-- Banner -->
+  <div class="bannerT">
+    <div class="content">
+      <h2>Team Gallery</h2>
+  <!--  <img src="soho1.gif">-->
+    </div>
+  </div>
+  
+  <!-- About-->
+  <section class="aboutG">
+    <div class="contentBxG">
+      <nav class="navbar navbar-expand-md">
+        <img id="myImg" src="peeps.jpg" alt="It's the SOHO team" style="margin-top: 5px;margin-right: 25px;height: 300px; margin-left: 10px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor"> 
+        <img id="myImg" src="team.png" alt="It's the SOHO team" style="margin-top: 5px;height: 300px;margin-right: 25px;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+        <img id="myImg" src="fun_time.png" alt="It's the SOHO team" style="margin-top: 5px;height: 300px;margin-right: 25px;" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+      </nav></section>
+<section class="aboutG">
+      <div class="contentBxG">
+      <nav class="navbar navbar-expand-md">
+        <img id="myImg" src="sundar.png" alt="It's the SOHO team" style="margin-top: 5px;margin-right: 25px;height: 300px; margin-left: 10px;" onclick="openModal();currentSlide(4)" class="hover-shadow cursor"> 
+        <img id="myImg" src="ml_teach.png" alt="It's the SOHO team" style="margin-top: 5px;height: 300px;margin-right: 25px;" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+        <img id="myImg" src="pavan.png" alt="It's the SOHO team" style="margin-top: 5px;height: 300px;margin-right: 25px;" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+      </nav></section>
+<section class="aboutG">
+      <div class="contentBxG">
+      <nav class="navbar navbar-expand-md">
+        <img id="myImg" src="hp.png" alt="It's the SOHO team" style="margin-top: 5px;margin-right: 25px;height: 300px; margin-left: 10px;" onclick="openModal();currentSlide(7)" class="hover-shadow cursor"> 
+        <img id="myImg" src="scribble.png" alt="It's the SOHO team" style="margin-top: 5px;height: 300px;margin-right: 25px;" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+        <img id="myImg" src="snake.png" alt="It's the SOHO team" style="margin-top: 5px;height: 300px;margin-right: 25px;" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+      </nav>
+
+  </section>
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="peeps.jpg" style="width:100%" >
+      <h1 style="text-align:center;background-color: black;color: white"> The Team Members Slide </h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="team.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> The Team's reaction to the slide </h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="fun_time.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> The Team's Funtime: Charades </h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="sundar.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> Team interacting with mentor Mr.Sundar </h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="ml_teach.png" style="width:100%" >
+      <h1 style="text-align:center;background-color: black;color: white"> Team member teaching Machine Learning amongst teammates </h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="pavan.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> Team interacting with Mr.Pavan Kumar</h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="hp.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> The Team Members having fun after sessions </h1>
+    </div>
+    
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="scribble.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> The Team Members having fun after sessions </h1>
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="snake.png" style="width:100%">
+      <h1 style="text-align:center;background-color: black;color: white"> The Team Members having fun after sessions </h1>
+    </div>
+
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+<!--
+    <div class="column">
+      <img class="demo cursor" src="peeps-wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="peeps-wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Snow">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="peeps-wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="peeps-wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+  -->
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+  <!-- Contact -->
+  <!--
+  <section class="contact">
+    <h2 class="heading">Contact Us</h2>
+    <p class="text">This is a sample website creted for the internship of the student for the SERD. Contains the team information with photos and project information with description. All projects are done as a tean effort which was approved by the organization.</p>
+  </section>
+  <section class="about">
+    <div class="contentBx redbg">
+      <div class="form">
+        <div class="inputBx">
+          <input type="text" name="" placeholder="Full Name">
+        </div>
+        <div class="inputBx">
+          <input type="text" name="" placeholder="Email Address">
+        </div>
+        <div class="inputBx">
+          <input type="text" name="" placeholder="Mobile No.">
+        </div>
+        <div class="inputBx">
+          <textarea placeholder="Write your message here"></textarea>
+        </div>
+        <div class="inputBx">
+          <input type="submit" name="" value="Send">
+        </div>
+      </div>
+    </div>
+    <div class="imgBx2"></div>
+  </section> -->
+  <!-- Footer -->
+  <section class="footer">
+    <p class="text">Design & Developed By SOHO Team.</p>
+    <ul>
+      <p class="text">Follow us on:</p>
+      <li><a href="#"><img src="facebook.png"></a></li>
+      <li><a href="#"><img src="twitter.png"></a></li>
+      <li><a href="#"><img src="linkedin.png"></a></li>
+    </ul>
+  </section>
+</body>
+</html>
